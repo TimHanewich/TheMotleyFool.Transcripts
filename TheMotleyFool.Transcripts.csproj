@@ -2,6 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1</Version>
+    <Description>Provides access to earnings call transcripts from The Motley Fool.</Description>
+    <PackageIcon>TMF_Logo.png</PackageIcon>
+    <RepositoryUrl>https://github.com/TimHanewich/TheMotleyFool.Transcripts</RepositoryUrl>
+    <PackageTags>the motley fool,earnings,transcripts,finance,investing</PackageTags>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <FileVersion>0.0.0.0</FileVersion>
+    <Authors>Tim Hanewich</Authors>
+    <Company>Tim Hanewich</Company>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="TMF_Logo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  
 
 </Project>
