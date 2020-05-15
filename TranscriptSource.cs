@@ -16,7 +16,7 @@ namespace TheMotleyFool.Transcripts
             hc = new HttpClient();
         }
 
-        public async Task<RecentArticle[]> GetRecentArticlesNextPageAsync()
+        public async Task<TranscriptPreview[]> GetRecentArticlesNextPageAsync()
         {
             string search_url = "https://www.fool.com/earnings-call-transcripts/?page=" + search_page.ToString();
             search_page++;
@@ -38,12 +38,12 @@ namespace TheMotleyFool.Transcripts
             string[] parts = article_data.Split(Splitter.ToArray(), StringSplitOptions.None);
 
             //parse the articles
-            List<RecentArticle> recentArticles = new List<RecentArticle>();
+            List<TranscriptPreview> recentArticles = new List<TranscriptPreview>();
             int t = 0;
             for (t=1;t<parts.Length;t++)
             {
                 string thisData = parts[t];
-                RecentArticle ra = new RecentArticle();
+                TranscriptPreview ra = new TranscriptPreview();
 
                 //Get link
                 loc1 = thisData.IndexOf("href");

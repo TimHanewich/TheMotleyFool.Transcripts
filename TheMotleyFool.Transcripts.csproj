@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1</Version>
+    <Version>2</Version>
     <Description>Provides access to earnings call transcripts from The Motley Fool.</Description>
     <PackageIcon>TMF_Logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/TimHanewich/TheMotleyFool.Transcripts</RepositoryUrl>

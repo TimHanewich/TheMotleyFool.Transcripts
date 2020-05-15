@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Provides access to earnings call transcripts from The Motley Fool.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheMotleyFool.Transcripts")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheMotleyFool.Transcripts")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.0.0.0")]

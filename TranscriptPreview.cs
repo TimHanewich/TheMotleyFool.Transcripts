@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace TheMotleyFool.Transcripts
 {
-    public class RecentArticle
+    public class TranscriptPreview
     {
         public string Title {get; set;}
         public DateTime PostedDate {get; set;}
@@ -14,7 +14,7 @@ namespace TheMotleyFool.Transcripts
         public string Url {get; set;}
         
 
-        public async Task<Article> GetArticleAsync()
+        public async Task<Transcript> GetTranscriptAsync()
         {
             //Error checking
             if (Url == null)
@@ -33,7 +33,7 @@ namespace TheMotleyFool.Transcripts
             HttpResponseMessage hrm = await hc.GetAsync(Url);
             string web = await hrm.Content.ReadAsStringAsync();
 
-            Article ToReturn = new Article();
+            Transcript ToReturn = new Transcript();
             int loc1 = 0;
             int loc2 = 0;
             List<string> Splitter = new List<string>();
