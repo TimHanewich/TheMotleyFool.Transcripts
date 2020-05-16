@@ -16,7 +16,7 @@ namespace TheMotleyFool.Transcripts
             hc = new HttpClient();
         }
 
-        public async Task<TranscriptPreview[]> GetRecentArticlesNextPageAsync()
+        public async Task<TranscriptPreview[]> GetRecentTranscriptPreviewsNextPageAsync()
         {
             string search_url = "https://www.fool.com/earnings-call-transcripts/?page=" + search_page.ToString();
             search_page++;

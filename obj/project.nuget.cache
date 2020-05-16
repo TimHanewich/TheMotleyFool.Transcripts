@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "uIO3ctnjsiWb7d+qKi4gwnAnPUJRij96pqx5FkpHhgzRqQZs4cwuNPdXMlqUC7JnMb2uRqRbbPm9Waor5Ak1RQ==",
+  "dgSpecHash": "xjrAx4w+vCF5WwTZzToSeH/wUd1irW0txLan+ytck9JR70c9JWylAOU0PPuPp10JtV3xXwFjcGrFBGjTKutrOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tihanewi\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj",
+  "projectFilePath": "C:\\Users\\TaHan\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tihanewi\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\tihanewi\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\TaHan\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\TaHan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

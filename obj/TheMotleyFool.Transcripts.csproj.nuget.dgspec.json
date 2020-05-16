@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tihanewi\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj": {}
+    "C:\\Users\\TaHan\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tihanewi\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj": {
-      "version": "2.0.0",
+    "C:\\Users\\TaHan\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj": {
+      "version": "3.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tihanewi\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj",
+        "projectUniqueName": "C:\\Users\\TaHan\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj",
         "projectName": "TheMotleyFool.Transcripts",
-        "projectPath": "C:\\Users\\tihanewi\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj",
-        "packagesPath": "C:\\Users\\tihanewi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tihanewi\\Downloads\\TheMotleyFool.Transcripts\\obj\\",
+        "projectPath": "C:\\Users\\TaHan\\Downloads\\TheMotleyFool.Transcripts\\TheMotleyFool.Transcripts.csproj",
+        "packagesPath": "C:\\Users\\TaHan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\TaHan\\Downloads\\TheMotleyFool.Transcripts\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\tihanewi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\TaHan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
