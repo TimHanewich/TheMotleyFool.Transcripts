@@ -10,7 +10,7 @@ namespace TheMotleyFool.Transcripts
     {
         public string Title {get; set;}
         public string Description {get; set;}
-        public DateTime PublicationDateTime {get; set;}
+        public DateTime CallDateTimeStamp {get; set;}
         public CallParticipant[] Participants {get; set;}
         public Remark[] Remarks {get; set;}
 
@@ -40,6 +40,12 @@ namespace TheMotleyFool.Transcripts
             loc1 = web.IndexOf(">", loc1 + 1);
             loc2 = web.IndexOf("<", loc1 + 1);
             ToReturn.Description = web.Substring(loc1 + 1, loc2 - loc1 - 1);
+
+            //Get Posted Date/Time
+            loc1 = web.IndexOf("<span id=\"date\">");
+            loc1 = web.IndexOf(">", loc1 + 1);
+            loc2 = web.IndexOf("<", loc1 + 1);
+            ToReturn.CallDateTimeStamp = DateTime.Parse(web.Substring(loc1 + 1, loc2 - loc1 - 1));
 
             #region "Get call participants"
 
