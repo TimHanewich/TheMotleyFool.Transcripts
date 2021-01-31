@@ -1,4 +1,6 @@
 ﻿using System;
+using TheMotleyFool.Transcripts;
+using Newtonsoft.Json;
 
 namespace testing
 {
@@ -6,7 +8,7 @@ namespace testing
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
