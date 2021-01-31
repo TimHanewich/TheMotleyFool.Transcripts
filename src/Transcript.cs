@@ -147,7 +147,7 @@ namespace TheMotleyFool.Transcripts
                     thisparagraph = thisparagraph.Replace("&amp;", "&");
                     thisparagraph = thisparagraph.Trim();
 
-                    //Add it to te remark
+                    //Create the list of remarks so far that we will append to if this is worthy
                     List<string> strs;
                     if (BufferRemark.SpokenRemarks != null)
                     {
@@ -157,7 +157,14 @@ namespace TheMotleyFool.Transcripts
                     {
                         strs = new List<string>();
                     }
-                    strs.Add(thisparagraph);
+
+                    //Add it if it meets criteria (i.e. not blank)
+                    if (thisparagraph != "")
+                    {
+                        strs.Add(thisparagraph);
+                    }
+                    
+                    //Add all of the spoken remarks (stirng) to the remark class
                     BufferRemark.SpokenRemarks = strs.ToArray();
                 }
 
