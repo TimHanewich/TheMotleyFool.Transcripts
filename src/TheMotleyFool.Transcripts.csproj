@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Version>4.1.0</Version>
     <Description>Provides access to earnings call transcripts from The Motley Fool.</Description>
     <PackageIcon>TMF_Logo.png</PackageIcon>
@@ -12,9 +12,14 @@
     <FileVersion>0.0.0.0</FileVersion>
     <Authors>Tim Hanewich</Authors>
     <Company>Tim Hanewich</Company>
+    <PackageLicenseFile>license</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\license">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="TMF_Logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
