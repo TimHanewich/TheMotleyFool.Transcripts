@@ -112,10 +112,19 @@ namespace TheMotleyFool.Transcripts
                 if (this_line.Contains("<strong>"))
                 {
                     
-                    //If there is one in the buffer, add it to the list
+                    //If there is one in the buffer, add it to the list. But only add it to the list if there is content in it!
                     if (BufferReady)
                     {
-                        AllRemarks.Add(BufferRemark);
+                        if (BufferRemark.SpokenRemarks != null) //It has to have spoken remarks
+                        {
+                            if (BufferRemark.SpokenRemarks.Length > 0) //The number of spoken remarks must be > 0
+                            {
+                                if (BufferRemark.Speaker != null) //The speaker data must be there
+                                {
+                                    AllRemarks.Add(BufferRemark);
+                                }
+                            }
+                        }
                     }
                     
                     BufferRemark = new Remark();
