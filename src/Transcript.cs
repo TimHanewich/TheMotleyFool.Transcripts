@@ -52,7 +52,7 @@ namespace TheMotleyFool.Transcripts
             List<CallParticipant> Participants_ = new List<CallParticipant>();
 
             //Get the call participant area
-            loc1 = web.IndexOf("<h2>Call participants:</h2>");
+            loc1 = web.IndexOf(">Call participants:</");
             loc2 = web.IndexOf("<div id=", loc1 + 1);
             string callparticipantdata = web.Substring(loc1 + 1, loc2 - loc1 - 1);
 
