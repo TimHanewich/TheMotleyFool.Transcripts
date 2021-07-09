@@ -95,7 +95,7 @@ namespace TheMotleyFool.Transcripts
 
             //Get remark content (paragraph content) and then split it up by line.
             loc1 = web.IndexOf("<h2>Contents:</h2>");
-            loc2 = web.IndexOf("<h2>Call participants:</h2>", loc1 + 1);
+            loc2 = web.IndexOf(">Call participants:</", loc1 + 1);
             string remarkdata = web.Substring(loc1, loc2 - loc1);
             Splitter.Clear();
             Splitter.Add("<p>");
@@ -141,33 +141,35 @@ namespace TheMotleyFool.Transcripts
                 {
                     //Get the paragraph
                     loc1 = this_line.IndexOf("</p>");
-                    string thisparagraph = this_line.Substring(0, loc1);
-
-                    //Clean it
-                    thisparagraph = thisparagraph.Replace("&amp;", "&");
-                    thisparagraph = thisparagraph.Trim();
-
-                    //Create the list of remarks so far that we will append to if this is worthy
-                    List<string> strs;
-                    if (BufferRemark.SpokenRemarks != null)
+                    if (loc1 > 0)
                     {
-                        strs = BufferRemark.SpokenRemarks.ToList();
-                    }
-                    else
-                    {
-                        strs = new List<string>();
-                    }
+                        string thisparagraph = this_line.Substring(0, loc1);
 
-                    //Add it if it meets criteria (i.e. not blank)
-                    if (thisparagraph != "")
-                    {
-                        strs.Add(thisparagraph);
+                        //Clean it
+                        thisparagraph = thisparagraph.Replace("&amp;", "&");
+                        thisparagraph = thisparagraph.Trim();
+
+                        //Create the list of remarks so far that we will append to if this is worthy
+                        List<string> strs;
+                        if (BufferRemark.SpokenRemarks != null)
+                        {
+                            strs = BufferRemark.SpokenRemarks.ToList();
+                        }
+                        else
+                        {
+                            strs = new List<string>();
+                        }
+
+                        //Add it if it meets criteria (i.e. not blank)
+                        if (thisparagraph != "")
+                        {
+                            strs.Add(thisparagraph);
+                        }
+                        
+                        //Add all of the spoken remarks (stirng) to the remark class
+                        BufferRemark.SpokenRemarks = strs.ToArray();
                     }
-                    
-                    //Add all of the spoken remarks (stirng) to the remark class
-                    BufferRemark.SpokenRemarks = strs.ToArray();
                 }
-
 
                 ToReturn.Remarks = AllRemarks.ToArray();
             }
