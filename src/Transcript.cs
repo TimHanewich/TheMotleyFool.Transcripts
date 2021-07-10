@@ -14,6 +14,8 @@ namespace TheMotleyFool.Transcripts
         public CallParticipant[] Participants {get; set;}
         public Remark[] Remarks {get; set;}
 
+        public string TradingSymbol {get; set;}
+
         public static async Task<Transcript> CreateFromUrlAsync(string url)
         {
         
@@ -183,6 +185,61 @@ namespace TheMotleyFool.Transcripts
                 ToReturn.Remarks = AllRemarks.ToArray();
             }
 
+            #endregion
+
+            #region "Try and extract the ticker symbol"
+  
+            //Main method that works with most earnings call transcripts
+            loc1 = web.IndexOf("<span class=\"ticker\"");
+            if (loc1 != -1)
+            {
+                loc1 = web.IndexOf("a href", loc1 + 1);
+                if (loc1 != -1)
+                {
+                    loc1 = web.IndexOf(">", loc1 + 1);
+                    loc2 = web.IndexOf("<", loc1 + 1);
+                    if (loc2 > loc1)
+                    {
+                        string symbolpart = web.Substring(loc1 + 1, loc2 - loc1 - 1); //for example, NASDAQ:HQY
+                        loc1 = symbolpart.IndexOf(":");
+                        if (loc1 != -1)
+                        {
+                            string symbol = symbolpart.Substring(loc1 + 1);
+                            ToReturn.TradingSymbol = symbol;
+                        }   
+                    }
+                }
+            }
+
+            //If it didnt find it above, try and find it the alternative way
+            //For example: https://www.fool.com/earnings/call-transcripts/2021/03/03/profound-medical-corp-q4-2020-earnings-call-transc/
+            if (ToReturn.TradingSymbol == null)
+            {
+                loc1 = web.IndexOf("WuDkNe");
+                if (loc1 != -1)
+                {
+                    loc1 = web.IndexOf(">", loc1 + 1);
+                    loc2 = web.IndexOf("<", loc1 + 1);
+                    if (loc2 > loc1)
+                    {
+                        string symbol = web.Substring(loc1 + 1, loc2 - loc1 - 1);
+                        ToReturn.TradingSymbol = symbol;
+                    }
+                }
+            }
+            
+            //Finally, if the above two did not work, try to extract it from the title
+            //Extract the trading symbol and company name from the title
+            if (ToReturn.TradingSymbol == null)
+            {
+                loc2 = ToReturn.Title.LastIndexOf(")");
+                loc1 = ToReturn.Title.LastIndexOf("(", loc2);
+                if (loc2 > loc1)
+                {
+                    ToReturn.TradingSymbol = web.Substring(loc1 + 1, loc2 - loc1 - 1).Trim().ToUpper();
+                }
+            }
+            
             #endregion
 
             return ToReturn;
