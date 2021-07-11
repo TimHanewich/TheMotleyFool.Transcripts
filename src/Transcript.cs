@@ -47,7 +47,46 @@ namespace TheMotleyFool.Transcripts
             loc1 = web.IndexOf("<span id=\"date\">");
             loc1 = web.IndexOf(">", loc1 + 1);
             loc2 = web.IndexOf("<", loc1 + 1);
-            ToReturn.CallDateTimeStamp = DateTime.Parse(web.Substring(loc1 + 1, loc2 - loc1 - 1));
+            if (loc2 > loc1)
+            {
+                string cdtstr = web.Substring(loc1 + 1, loc2 - loc1 - 1);
+                if (cdtstr != "")
+                {
+                    try
+                    {
+                        ToReturn.CallDateTimeStamp = DateTime.Parse(web.Substring(loc1 + 1, loc2 - loc1 - 1));
+                    }
+                    catch
+                    {
+
+                    }
+                }
+                else
+                {
+                    //if we were unable to get the date time from above, try another way.
+                    //For example, for this one: https://www.fool.com/earnings/call-transcripts/2020/03/05/bruker-brkr-q4-2019-earnings-call-transcript.aspx
+            
+                    loc1 = web.IndexOf("<span id=\"date\">");
+                    loc1 = web.IndexOf(">", loc1 + 1);
+                    loc2 = web.IndexOf("<", loc1 + 1); //close span
+                    loc1 = web.IndexOf(">", loc2 + 1); //end of the close span tag
+                    loc2 = web.IndexOf("<", loc1 + 1);
+                    if (loc2 > loc1)
+                    {
+                        string tts = web.Substring(loc1 + 1, loc2 - loc1 - 1);
+                        try
+                        {
+                            ToReturn.CallDateTimeStamp = DateTime.Parse(tts);
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+            }
+
+            
 
             #region "Get call participants"
 
