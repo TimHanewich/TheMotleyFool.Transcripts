@@ -99,28 +99,38 @@ namespace TheMotleyFool.Transcripts
 
             //Split it into lines, enumerate through and parse.
             Splitter.Clear();
-            Splitter.Add("<strong>");
+            Splitter.Add("<p>");
             string[] parts = callparticipantdata.Split(Splitter.ToArray(), StringSplitOptions.None);
             for (t=1;t<parts.Length;t++)
             {
                 string thisparticipantdata = parts[t];
-                CallParticipant this_participant = new CallParticipant();
-
-                //Get name
-                loc1 = thisparticipantdata.IndexOf("</strong>");
-                this_participant.Name = thisparticipantdata.Substring(0, loc1);
-
-                //Get title
-                loc1 = thisparticipantdata.IndexOf("<em>");
+                loc1 = thisparticipantdata.IndexOf("</p");
                 if (loc1 != -1)
-                {
-                    loc1 = thisparticipantdata.IndexOf(">", loc1 + 1);
-                    loc2 = thisparticipantdata.IndexOf("</em>", loc1 + 1);
-                    this_participant.Title = thisparticipantdata.Substring(loc1 + 1, loc2 - loc1 - 1);
-                    this_participant.Title = this_participant.Title.Replace("&amp;", "&");
-                }
+                {    
+                    string dataonly = thisparticipantdata.Substring(0, loc1);
+                    if (dataonly.Contains("<strong>"))
+                    {
+                        CallParticipant this_participant = new CallParticipant();
 
-                Participants_.Add(this_participant);
+                        //Get name
+                        loc1 = thisparticipantdata.IndexOf(">");
+                        loc2 = thisparticipantdata.IndexOf("<", loc1 + 1);
+                        this_participant.Name = thisparticipantdata.Substring(loc1 + 1, loc2 - loc1 - 1).Trim();
+
+                        //Get title
+                        loc1 = thisparticipantdata.IndexOf("<em>");
+                        if (loc1 != -1)
+                        {
+                            loc1 = thisparticipantdata.IndexOf(">", loc1 + 1);
+                            loc2 = thisparticipantdata.IndexOf("</em>", loc1 + 1);
+                            this_participant.Title = thisparticipantdata.Substring(loc1 + 1, loc2 - loc1 - 1);
+                            this_participant.Title = this_participant.Title.Replace("&amp;", "&");
+                        }
+
+                        Participants_.Add(this_participant);
+                    }
+                    
+                }
             }
 
             //Add the operator as a participant
